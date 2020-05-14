@@ -32,10 +32,13 @@
 			this.AddFile = new System.Windows.Forms.Button();
 			this.MergeFiles = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.Sequential = new System.Windows.Forms.RadioButton();
 			this.Interleaved = new System.Windows.Forms.RadioButton();
+			this.Sequential = new System.Windows.Forms.RadioButton();
 			this.RemoveFile = new System.Windows.Forms.Button();
+			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.ReverseBits = new System.Windows.Forms.CheckBox();
 			this.groupBox1.SuspendLayout();
+			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// FileList
@@ -59,7 +62,7 @@
 			// 
 			// MergeFiles
 			// 
-			this.MergeFiles.Location = new System.Drawing.Point(12, 491);
+			this.MergeFiles.Location = new System.Drawing.Point(12, 575);
 			this.MergeFiles.Name = "MergeFiles";
 			this.MergeFiles.Size = new System.Drawing.Size(104, 60);
 			this.MergeFiles.TabIndex = 3;
@@ -78,27 +81,27 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Merge Type";
 			// 
-			// Sequential
-			// 
-			this.Sequential.AutoSize = true;
-			this.Sequential.Location = new System.Drawing.Point(6, 25);
-			this.Sequential.Name = "Sequential";
-			this.Sequential.Size = new System.Drawing.Size(110, 24);
-			this.Sequential.TabIndex = 0;
-			this.Sequential.TabStop = true;
-			this.Sequential.Text = "Sequential";
-			this.Sequential.UseVisualStyleBackColor = true;
-			// 
 			// Interleaved
 			// 
 			this.Interleaved.AutoSize = true;
 			this.Interleaved.Location = new System.Drawing.Point(183, 25);
 			this.Interleaved.Name = "Interleaved";
-			this.Interleaved.Size = new System.Drawing.Size(113, 24);
+			this.Interleaved.Size = new System.Drawing.Size(112, 24);
 			this.Interleaved.TabIndex = 1;
 			this.Interleaved.TabStop = true;
 			this.Interleaved.Text = "Interleaved";
 			this.Interleaved.UseVisualStyleBackColor = true;
+			// 
+			// Sequential
+			// 
+			this.Sequential.AutoSize = true;
+			this.Sequential.Location = new System.Drawing.Point(6, 25);
+			this.Sequential.Name = "Sequential";
+			this.Sequential.Size = new System.Drawing.Size(109, 24);
+			this.Sequential.TabIndex = 0;
+			this.Sequential.TabStop = true;
+			this.Sequential.Text = "Sequential";
+			this.Sequential.UseVisualStyleBackColor = true;
 			// 
 			// RemoveFile
 			// 
@@ -110,11 +113,32 @@
 			this.RemoveFile.UseVisualStyleBackColor = true;
 			this.RemoveFile.Click += new System.EventHandler(this.RemoveFile_Click);
 			// 
+			// groupBox2
+			// 
+			this.groupBox2.Controls.Add(this.ReverseBits);
+			this.groupBox2.Location = new System.Drawing.Point(12, 491);
+			this.groupBox2.Name = "groupBox2";
+			this.groupBox2.Size = new System.Drawing.Size(441, 68);
+			this.groupBox2.TabIndex = 6;
+			this.groupBox2.TabStop = false;
+			this.groupBox2.Text = "Options";
+			// 
+			// ReverseBits
+			// 
+			this.ReverseBits.AutoSize = true;
+			this.ReverseBits.Location = new System.Drawing.Point(6, 25);
+			this.ReverseBits.Name = "ReverseBits";
+			this.ReverseBits.Size = new System.Drawing.Size(160, 24);
+			this.ReverseBits.TabIndex = 0;
+			this.ReverseBits.Text = "Reverse Bit Order";
+			this.ReverseBits.UseVisualStyleBackColor = true;
+			// 
 			// MergeBin
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(466, 567);
+			this.ClientSize = new System.Drawing.Size(466, 648);
+			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.RemoveFile);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.MergeFiles);
@@ -125,6 +149,8 @@
 			this.Text = "Form1";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -138,6 +164,8 @@
 		private System.Windows.Forms.RadioButton Interleaved;
 		private System.Windows.Forms.RadioButton Sequential;
 		private System.Windows.Forms.Button RemoveFile;
+		private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.CheckBox ReverseBits;
 	}
 }
 

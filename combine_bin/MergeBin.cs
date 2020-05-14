@@ -75,21 +75,22 @@ namespace combine_bin
 				}
 
 				merger.Merge = Interleaved.Checked ? MergeType.Interleaved : MergeType.Sequential;
+				merger.ReverseBits = ReverseBits.Checked;
 				merger.Inputs = InFileData;
 
-				try
-				{
+				//try
+				//{
 					using (FileStream of = new FileStream(sfd.FileName, FileMode.CreateNew, FileAccess.Write))
 					{
 						byte[] data = merger.Output;
 						of.Write(data, 0, data.Length);
 					}
-				}
-				catch (Exception ex)
-				{
-					AbortError("Merge/Save Error - " + ex.Message);
-					return;
-				}
+				//}
+				//catch (Exception ex)
+				//{
+				//	AbortError("Merge/Save Error - " + ex.Message);
+				//	return;
+				//}
 			}
 		}
 

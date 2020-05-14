@@ -39,6 +39,19 @@ namespace combine_bin
 			}
 		}
 
+		public bool ReverseBits
+		{
+			get
+			{
+				return reverse;
+			}
+			set
+			{
+				modified = true;
+				reverse = value;
+			}
+		}
+
 		public byte[] Output
 		{
 			get
@@ -58,6 +71,7 @@ namespace combine_bin
 		protected List<byte[]> inputs = null;
 		protected byte[] output = null;
 		protected bool modified = false;
+		protected bool reverse = false;
 
 		void MergeData()
 		{
@@ -94,7 +108,7 @@ namespace combine_bin
 					{
 						for (int j = 0; j < inputs[i].Length; j++)
 						{
-							output[(i * inputs[i].Length) + j] = inputs[i][j];
+							output[(i * inputs[i].Length) + j] = !reverse ? inputs[i][j] : ReverseByte(inputs[i][j]);
 						}
 					}
 					break;
@@ -104,7 +118,7 @@ namespace combine_bin
 					{
 						for (int j = 0; j < inputs.Count; j++)
 						{
-							output[(i * inputs.Count) + j] = inputs[j][i];
+							output[(i * inputs.Count) + j] = !reverse ? inputs[j][i] : ReverseByte(inputs[j][i]);
 						}
 					}
 					break;
@@ -117,6 +131,20 @@ namespace combine_bin
 					}
 					break;
 			}
+		}
+
+		byte ReverseByte(byte inbyte)
+		{
+			byte outbyte = 0;
+
+			for (int i = 0; i < 8; i++)
+			{
+				outbyte = (byte)(outbyte << 1);
+				outbyte += (byte)(inbyte & 1);
+				inbyte = (byte)(inbyte >> 1);
+			}
+
+			return outbyte;
 		}
 	}
 }
